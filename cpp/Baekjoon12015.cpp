@@ -1,29 +1,27 @@
-#include <cstdio>
+#include <iostream>
+#include <vector>
+#include <utility>
+#include <algorithm>
+
 using namespace std;
 
-int n, nums[100000], d[100000], end = 0;
-
-void search(int k){
-    int low  = 0, high = end, mid = (low + high) / 2;
-    while(high >= low){
-        if(d[mid] <= k) low = mid + 1;
-        else high = mid - 1;
-        mid = (low + high) / 2;
-    }
-    d[mid] = k;
-}
-
 int main(int argc, char const *argv[]){
-    scanf("%d", &n);
-    for(int i = 0; i < n; ++i)
-        scanf("%d", &nums[i]);
-    
-    d[0] = 0;
-    for(int i = 0; i < n; ++i){
-        if(nums[i] > d[end]) d[++end] = nums[i];
-        else search(nums[i]);
-    }
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
 
-    printf("%d\n", end);
+    int N, longestLength = 0;
+    cin >> N;
+
+    vector<pair<int,int>> table(N);
+    for(int i = 0; i < N; ++i){
+        cin >> table[i].first;
+        for(int j = 0; j < i; ++j)
+            if(table[i].first > table[j].first)
+                table[i].second = max(table[i].second, table[j].second + 1);
+        longestLength = max(longestLength, table[i].second);
+    }
+        
+    cout << longestLength + 1 << "\n";
     return 0;
 }
