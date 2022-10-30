@@ -58,7 +58,7 @@ public class Baekjun4568{
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class Baekjun4568 {
+public class Baekjoon4568 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String line;

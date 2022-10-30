@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Baekjun11726 {
+public class Baekjoon11726 {
     public static int solution(int n){
         int[] table = new int[n+2];
         table[1] = 1;

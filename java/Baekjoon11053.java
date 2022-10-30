@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Baekjun11053 {
+public class Baekjoon11053 {
     public static int solution(int N, int[] A){
         int max = 0;
         int[] table = new int[N];

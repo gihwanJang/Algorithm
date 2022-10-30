@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Baekjun1149 {
+public class Baekjoon1149 {
     public static int solution(int N, int[][] rgb){
         int[][] table = new int[N+1][3];
 

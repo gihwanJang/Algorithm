@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Baekjun3344 {
+public class Baekjoon3344 {
     static int[] board;
     public static boolean isPossible( int currentRow) {
         boolean ret = true;

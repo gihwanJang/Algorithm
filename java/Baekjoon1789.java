@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Baekjun1789 {
+public class Baekjoon1789 {
     public static int solution(long N){
         int count=0;
 

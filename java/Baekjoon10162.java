@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Baekjun10162 {
+public class Baekjoon10162 {
     public static void solution(int T){
         int[] time = {300,60,10};
         int[] count = {0,0,0};

@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
-public class Baekjun1931 {
+public class Baekjoon1931 {
     public static class Meeting implements Comparable <Meeting>{
         int start, end;
         public Meeting(int start, int end){

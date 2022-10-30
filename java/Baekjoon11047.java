@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Baekjun11047 {
+public class Baekjoon11047 {
     public static int solution(int[] coins, int K){
         int[] table = new int[K+1];
         Arrays.fill(table, 987654321);

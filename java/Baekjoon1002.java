@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Baekjun1002 {
+public class Baekjoon1002 {
     public static class Turret{
         int x,y,r;
         public Turret(int x, int y, int r){

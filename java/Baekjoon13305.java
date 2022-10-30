@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
-public class Baekjun13305 {
+public class Baekjoon13305 {
     public static long solution(int N, int[] lengths, int[] costs){
         long cost=0, length=0;
         PriorityQueue<Integer> pq = new PriorityQueue<>();

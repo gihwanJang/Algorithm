@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Baekjun1003{
+public class Baekjoon1003{
     public static void solution(int N){
         int[] table = new int[N<1 ? 2 : N+1];
         table[N]=1;
