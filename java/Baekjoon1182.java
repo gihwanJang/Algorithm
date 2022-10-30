@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Baekjun1182 {
+public class Baekjoon1182 {
     public static int solution(int N, int S, int[] nums){
         int count=0;
         for(int i=0; i<(1<<N);++i){

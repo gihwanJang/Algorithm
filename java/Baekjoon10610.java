@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
-public class Baekjun10610 {
+public class Baekjoon10610 {
     public static String solution(String N){
         StringBuilder sb = new StringBuilder();
         int sum=0;

@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Baekjun2579 {
+public class Baekjoon2579 {
     public static int solution(int N, int[] stairs){
         int[][] table = new int[N+1][2];
         table[1][0]=stairs[0];

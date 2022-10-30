@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Baekjun20989 {
+public class Baekjoon20989 {
     public static int tsp(int[][] G, int[][] table, int curr, int visited){
         if (visited == (1 << G.length) - 1) {
             if (G[curr][0] == 0)

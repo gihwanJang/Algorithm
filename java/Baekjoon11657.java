@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Baekjun11657 {
+public class Baekjoon11657 {
     static int INF = 987654321;
     public static class Edge{
         int start, end, cost;

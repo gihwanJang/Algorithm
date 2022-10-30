@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class Baekjun15481 {
+public class Baekjoon15481 {
     public static class Edge implements Comparable<Edge>{
         int u,v,w;
         public Edge(int u, int v, int w){

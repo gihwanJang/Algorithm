@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
-public class Baekjun2217 {
+public class Baekjoon2217 {
     public static int solution(int N, int[] ropes){
         int max=0;
         Arrays.sort(ropes);

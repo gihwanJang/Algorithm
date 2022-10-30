@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Baekjun1946 {
+public class Baekjoon1946 {
     public static class Applicant implements Comparable<Applicant>{
         int socre, rank;
         public Applicant(int socre, int rank){

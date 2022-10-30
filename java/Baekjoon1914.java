@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.math.BigInteger;
 
-public class Baekjun1914 {
+public class Baekjoon1914 {
     public static void solution(int N, int start,  int mid, int end){
         if (N == 1)
             System.out.println(start+" "+end);

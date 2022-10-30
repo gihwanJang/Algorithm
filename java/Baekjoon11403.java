@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.util.HashSet;
 import java.util.StringTokenizer;
 
-public class Baekjun11403 {
+public class Baekjoon11403 {
     public static void DFS(int N, int[][] W,  HashSet<Integer> set, int node, int r){
         for(int c=0; c<N; ++c)
             if(W[r][c]==1&&!set.contains(c)){

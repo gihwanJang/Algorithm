@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 // 14212kb 124ms
-public class Baekjun5585 {
+public class Baekjoon5585 {
     public static int coinChange(int n){
         int[] coins = {1,5,10,50,100,500};
         int[] table = new int[n+1];

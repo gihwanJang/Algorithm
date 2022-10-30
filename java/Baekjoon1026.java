@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.StringTokenizer;
 
-public class Baekjun1026 {
+public class Baekjoon1026 {
     public static int solution(int N, int[] A, Integer[] B){
         Arrays.sort(A);
         Arrays.sort(B,Collections.reverseOrder());

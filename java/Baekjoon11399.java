@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Baekjun11399{
+public class Baekjoon11399{
     public static int minTime(int N, int[] P){
         int min=0;
         Arrays.sort(P);

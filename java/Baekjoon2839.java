@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
-public class Baekjun2839{
+public class Baekjoon2839{
     public static int solution(int N){
         int[] contains = {3,5};
         int[] table = new int[N+1];

@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
-public class Baekjun1463 {
+public class Baekjoon1463 {
     public static int solution(int num){
         int[] table = new int[num+1];
         Arrays.fill(table, 987654321);
