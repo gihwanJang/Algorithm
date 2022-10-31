@@ -20,7 +20,6 @@ string findBigNum(vector<int>&nums, int M, string n){
         if(M >= nums[i]){
             s += to_string(i);
             n = cmp(n, findBigNum(nums, M - nums[i], s));
-            cout << n << "\n";
             s.pop_back();
         }
 
