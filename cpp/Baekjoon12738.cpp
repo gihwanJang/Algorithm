@@ -12,7 +12,7 @@ int main(int argc, char const *argv[]){
     int N, num;
     cin >> N;
     
-    vector<int> v = {1000000};
+    vector<int> v = {1000000000};
     for (int i = 0; i < N; ++i){
         cin >> num;
         if (num > v.back())
