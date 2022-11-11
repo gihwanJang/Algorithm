@@ -8,6 +8,8 @@
         "chrono": "cpp",
         "set": "cpp",
         "unordered_map": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "__locale": "cpp",
+        "list": "cpp"
     }
 }
