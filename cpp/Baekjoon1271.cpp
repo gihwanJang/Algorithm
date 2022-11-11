@@ -4,59 +4,83 @@
 
 using namespace std;
 
-// (a > b) -> (a - b)
-string subtract(string a, string b){
-    string sub = "";
-    int a_c, b_c;
-
-    for(int i = 1; i <= b.length(); ++i){
-        a_c = a[a.length() - i] - '0';
-        b_c = b[b.length() - i] - '0';
-        
-        if(a_c - b_c < 0){
-            int j = 1;
-            while(a[a.length() - i - j] == 0){
-                a[a.length() - i - j] = '9';
-                ++j;
-            }
-            a[a.length() - i - j] -= 1;
-            sub.push_back(('0' + 10 + a_c - b_c));
-        }
-        else
-            sub.push_back('0' + a_c - b_c);
+string bigNum_Divide(string a, long long b) {
+    long long res=0;
+    string c;
+    
+	for(long long i = 0; i < a.length(); i++) {
+        res = (res*10)+(a[i]-'0');
+        c += (res/b)+'0';
+        res %= b;
     }
-
-    for(int i = b.length() + 1; i <= a.length(); ++i)
-        sub.push_back(a[a.length() - i]);
-
-    while(sub.length() != 1 && sub.back() == '0')
-        sub.pop_back();
-
-    reverse(sub.begin(), sub.end());
-
-    return sub;
+    
+    return c;
 }
 
-bool cmp(string a, string b){
+long long bigNum_Mod(string a, long long b) {
+    long long res=0;
+
+	for(long long i = 0; i < a.length(); i++) {
+        res = (res*10)+(a[i]-'0');
+        res %= b;
+    }
+    
+    return res;
+}
+
+// 큰 수에서 작은 수를 빼기 위한 swap
+bool check(string& a, string& b) {
+    // 길이가 길면 무조건 큼
     if(a.length() > b.length())
+        return false;
+    else if(a.length() < b.length()) {
+        swap(a,b);
         return true;
-    else
-        return a >= b;
+    }
+ 
+    // 길이가 같으면 한자리씩 비교
+    for(int i=0; i<a.length(); i++) {
+        if(a[i] > b[i])
+            return false;
+        else if(a[i] < b[i]) {
+            swap(a,b);
+            return true;
+        }
+    }
+    return false;
 }
 
-string increaseString(string a){
-    int i = a.length() - 1;
-    while(a[i] == '9'){
-        a[i] = '0';
-        --i;
+// a에서 b를 빼기
+string bigNum_Sub(string a, string b) {
+    bool CR=false, flag=check(a, b);
+    long long res=0, al=a.length(), bl=b.length();
+    string c;
+    
+	for(long long i=0; i<al || i<bl; i++) {
+        if(i < al) {
+            res += a[al-i-1]-'0';
+            if(CR) { res--; CR=false; } // 캐리 처리
+        }
+        if(i < bl)
+            res -= b[bl-i-1]-'0';
+        
+        // 뺀 값이 음수일 시 보수, 캐리 체크
+        if(res<0) {
+            res = 10-abs(res);
+            CR = true;
+        }
+        c += res+'0';
+        res = 0;
     }
-    if(i == -1){
-        a.push_back('1');
-        reverse(a.begin(), a.end());
-    }
-    else
-        a[i] += 1;
-    return a;
+    
+    // 최종 값이 0이 아닌 경우, 맨 앞이 0이면 제거
+    if(c.back()=='0' && c.length()>1) c.pop_back();
+    // check()에서 swap된 경우 음수
+    if(flag) c += '-';
+	// 문자열에 반대로 저장되므로 뒤집기
+    reverse(c.begin(), c.end());
+    
+    return c;
 }
 
 int main(int argc, char const *argv[]){
@@ -64,15 +88,11 @@ int main(int argc, char const *argv[]){
     cin.tie(NULL);
     cout.tie(NULL);
 
-    string n, m, ans = "0";
+    string n;
+    long long m;
     cin >> n >> m;
 
-    while(cmp(n, m)){
-        ans = increaseString(ans);
-        n = subtract(n, m);
-    }
-
-    cout << ans << "\n";
-    cout << n << "\n";
+    cout << bigNum_Divide(n, m) << "\n";
+    cout << bigNum_Mod(n,m) << "\n";
     return 0;
 }
