@@ -10,6 +10,7 @@
         "unordered_map": "cpp",
         "vector": "cpp",
         "__locale": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "iosfwd": "cpp"
     }
 }
