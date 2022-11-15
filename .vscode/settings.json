@@ -11,6 +11,7 @@
         "vector": "cpp",
         "__locale": "cpp",
         "list": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "queue": "cpp"
     }
 }
