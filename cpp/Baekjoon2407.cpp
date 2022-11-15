@@ -1,25 +1,34 @@
 #include <iostream>
 
 using namespace std;
+//메모이제션 사용
+string arr[105][105];
 
-long long factorial(long long start, long long end){
-    long long f = end;
-    for(long i = start; i < end; ++i)
-        f *= i;
-    return f;
+string add(string num1, string num2){
+    string num = "";
+    int sum = 0;
+    int size = max(num1.size(),num2.size());
+
+    for(int i=0;i<size || sum;i++){
+        if(num1.size()>i) sum += num1[i]-'0';
+        if(num2.size()>i) sum += num2[i]-'0';
+
+        num += sum%10 +'0';
+        sum /= 10;
+    }
+
+    return num;
 }
 
-long long combin(long long n, long long m){
-    long long big, small;
-    if(n - m > m){
-        big = n - m;
-        small = m;
-    }
-    else{
-        big = m;
-        small = n - m;
-    }
-    return (factorial(big + 1, n) / factorial(1, small));
+string combi(int n, int m){
+    if(n == m || m == 0) return "1";
+    string &ans = arr[n][m];
+
+    if(ans!="") return ans;
+
+    ans = add(combi(n-1,m-1), combi(n-1,m));
+
+    return ans;
 }
 
 int main(int argc, char const *argv[]){
@@ -27,9 +36,12 @@ int main(int argc, char const *argv[]){
     cin.tie(NULL);
     cout.tie(NULL);
 
-    long long n, m;
+    int n, m;
     cin >> n >> m;
 
-    cout << (combin(n - 1, m - 1) + combin(n - 1, m)) << "\n";
+    combi(n,m);
+
+    for(int i=arr[n][m].size()-1;i>=0;i--)
+        cout << arr[n][m][i];
     return 0;
 }
