@@ -1,7 +1,3 @@
-import java.util.Arrays;
-import java.util.Set;
-import java.util.stream.Collectors;
-
 public class ProgrammersThreeMusketeers {
     public int solution(int[] number) {
         int answer = 0;
