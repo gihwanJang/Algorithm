@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 import java.util.List;
 
-class Solution {
+public class ProgrammersMakeHamberger {
     private boolean checkIngredient(List<Integer> ingredients){
         if(ingredients.size() < 4) return false;
 
@@ -36,11 +36,8 @@ class Solution {
         
         return answer;
     }
-}
-
-public class ProgrammersMakeHamberger {
     public static void main(String[] args) {
-        Solution s = new Solution();
+        ProgrammersMakeHamberger s = new ProgrammersMakeHamberger();
         int ingredient[] = {2, 1, 1, 2, 3, 1, 2, 3, 1};
 
         System.out.println(s.solution(ingredient));
