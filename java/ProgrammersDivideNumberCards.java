@@ -32,9 +32,6 @@ public class ProgrammersDivideNumberCards {
         int gcdA = getArrayGCD(arrayA);
         int gcdB = getArrayGCD(arrayB);
 
-        System.out.println("arrayA GCD : "+gcdA);
-        System.out.println("arrayB GCD : "+gcdB);
-
         gcdA = checkIsDivide(arrayB, gcdA);
         gcdB = checkIsDivide(arrayA, gcdB);
 
