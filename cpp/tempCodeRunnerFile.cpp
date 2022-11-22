@@ -1,62 +1,12 @@
 #include <iostream>
-#include <string>
+#include <vector>
+#include <utility>
 #include <algorithm>
 
 using namespace std;
 
-// (a > b) -> (a - b)
-string subtract(string a, string b){
-    string sub = "";
-    int a_c, b_c;
-
-    for(int i = 1; i <= b.length(); ++i){
-        a_c = a[a.length() - i] - '0';
-        b_c = b[b.length() - i] - '0';
-        
-        if(a_c - b_c < 0){
-            int j = 1;
-            while(a[a.length() - i - j] == 0){
-                a[a.length() - i - j] = '9';
-                ++j;
-            }
-            a[a.length() - i - j] -= 1;
-            sub.push_back(('0' + 10 + a_c - b_c));
-        }
-        else
-            sub.push_back('0' + a_c - b_c);
-    }
-
-    for(int i = b.length() + 1; i <= a.length(); ++i)
-        sub.push_back(a[a.length() - i]);
-
-    while(sub.length() != 1 && sub.back() == '0')
-        sub.pop_back();
-
-    reverse(sub.begin(), sub.end());
-
-    return sub;
-}
-
-bool cmp(string a, string b){
-    if(a.length() > b.length())
-        return true;
-    else
-        return a >= b;
-}
-
-string increaseString(string a){
-    int i = a.length() - 1;
-    while(a[i] == '9'){
-        a[i] = '0';
-        --i;
-    }
-    if(i == -1){
-        a.push_back('1');
-        reverse(a.begin(), a.end());
-    }
-    else
-        a[i] += 1;
-    return a;
+bool cmp(pair<int,int> a, pair<int,int> b){
+    return a.second < b.second;
 }
 
 int main(int argc, char const *argv[]){
@@ -64,15 +14,37 @@ int main(int argc, char const *argv[]){
     cin.tie(NULL);
     cout.tie(NULL);
 
-    string n, m, ans = "0";
-    cin >> n >> m;
+    int N;
+    cin >> N;
 
-    while(cmp(n, m)){
-        ans = increaseString(ans);
-        n = subtract(n, m);
+    vector<pair<int,int>> nums(N);
+    vector<int> table(N);
+
+    for(int i = 0; i < N; ++i){
+        nums[i].first = i;
+        cin >> nums[i].second;
     }
 
-    cout << ans << "\n";
-    cout << n << "\n";
+    if(N == 1){
+        cout << 0 << "\n";
+        return 0;
+    }
+
+    sort(nums.begin(), nums.end(), cmp);
+
+    for(int i = 1; i < N; ++i)
+        for(int j = i - 1; j > -1; --j)
+            if(nums[i].second % nums[j].second == 0){
+                table[nums[i].first] = table[nums[j].first] + 1;
+                break;
+            }
+
+    for(int i = N - 1; i  > 0; --i)
+        if(nums[i].second == nums[i - 1].second)
+            table[nums[i - 1].first] = table[nums[i].first];
+
+    for(int i = 0; i < N; ++i)
+        cout << table[i] << "\n";
+    
     return 0;
 }
