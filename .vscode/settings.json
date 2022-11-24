@@ -12,6 +12,8 @@
         "__locale": "cpp",
         "list": "cpp",
         "iosfwd": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "ios": "cpp",
+        "iomanip": "cpp"
     }
 }

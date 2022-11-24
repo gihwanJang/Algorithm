@@ -28,7 +28,6 @@ public class ProgrammersDivideNumberCards {
     }
 
     public int solution(int[] arrayA, int[] arrayB) {
-        int answer = 0;
         int gcdA = getArrayGCD(arrayA);
         int gcdB = getArrayGCD(arrayB);
 
