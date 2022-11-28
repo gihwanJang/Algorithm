@@ -9,16 +9,14 @@ public class ProgrammersLongJump {
     }
 
     private long jump(int n){
-        List<Integer> table = new ArrayList<>(Collections.nCopies(n + 1, 0));
+        List<Integer> table = new ArrayList<>(n);
 
-        table.set(0, 1);
-        for(int i = 0; i < n; ++i){
-            table.set(i + 1, moduler(table.get(i), table.get(i + 1)));
-            if(i + 2 <= n)
-                table.set(i + 2, moduler(table.get(i), table.get(i + 2)));
-        }
+        table.add(1);
+        table.add(2);
+        for(int i = 2; i < n; ++i)
+            table.add(moduler(table.get(i - 2), table.get(i - 1)));
 
-        return table.get(n);
+        return table.get(n - 1);
     }
 
     public long solution(int n) {
@@ -28,7 +26,7 @@ public class ProgrammersLongJump {
     public static void main(String[] args) {
         ProgrammersLongJump problem = new ProgrammersLongJump();
 
-        System.out.println(problem.solution(123));
+        System.out.println(problem.solution(4));
     }
     
 }
