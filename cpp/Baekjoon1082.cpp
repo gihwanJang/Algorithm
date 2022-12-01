@@ -11,19 +11,10 @@ string cmp(string num1, string num2){
         return max(num1, num2);
 }
 
-string findBigNum(vector<int>&nums, int M, string n){
-    if(M == 0) return n;
-
-    string s = n;
-
-    for(int i = s == "" ? 1 : 0; i < nums.size(); ++i)
-        if(M >= nums[i]){
-            s += to_string(i);
-            n = cmp(n, findBigNum(nums, M - nums[i], s));
-            s.pop_back();
-        }
-
-    return n;
+string makeNum(string num1, string num2){
+    if(num1 == "0")
+        return num2;
+    return num1 + num2;
 }
 
 int main(int argc, char const *argv[]){
@@ -40,9 +31,14 @@ int main(int argc, char const *argv[]){
 
     int M;
     cin >> M;
+    vector<string> table(M + 1, "0");
 
-    string ans = findBigNum(nums, M, "");
+    for(int i = 0; i <= M; ++i){
+        for(int j = 0; j < N; ++j)
+            if(i + nums[j] <= M)
+                table[i + nums[j]] = cmp(table[i + nums[j]], makeNum(table[i], to_string(j)));
+    }
 
-    cout << (ans == "" ? "0" : ans) << "\n";
+    cout << table[M] << "\n";
     return 0;
 }
