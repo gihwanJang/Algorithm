@@ -13,7 +13,7 @@ public class ProgrammersNearestLetter {
     }
 
     private List<Integer> findNearestLetter(String s){
-        List<Integer> set = new ArrayList(Collections.nCopies(26, -1));
+        List<Integer> set = new ArrayList<>(Collections.nCopies(26, -1));
         List<Integer> nearestLetter = new ArrayList<>(s.length());
 
         for(int i = 0; i < s.length(); ++i)
