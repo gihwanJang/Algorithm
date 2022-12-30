@@ -1,2 +1,2 @@
-() - 1, prev = 1, curr;
-    string subStr;
+
+    for(int i = 0; i <= n; ++i)
