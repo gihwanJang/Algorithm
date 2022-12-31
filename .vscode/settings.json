@@ -21,6 +21,8 @@
         "array": "cpp",
         "deque": "cpp",
         "initializer_list": "cpp",
-        "string_view": "cpp"
+        "string_view": "cpp",
+        "__string": "cpp",
+        "map": "cpp"
     }
 }
