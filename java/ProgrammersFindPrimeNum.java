@@ -43,12 +43,9 @@ public class ProgrammersFindPrimeNum {
 
         insertSet(numbers, set, visited, 0, 0);
 
-        for(int i : set){
-            if(!prime.get(i)){
-                System.out.println(i);
+        for(int i : set)
+            if(!prime.get(i))
                 ++ans;
-            }
-        }
 
         return ans;
     }
