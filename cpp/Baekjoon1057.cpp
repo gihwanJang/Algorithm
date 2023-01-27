@@ -15,7 +15,7 @@ int main(int argc, char const *argv[]){
 
     sort(players.begin(), players.end());
 
-    while(players[0] < players[1] && (players[0]%2 != 1 || players[0]+1 != players[1])){
+    while(players[0]%2 != 1 || players[0]+1 != players[1]){
         for(int i = 0; i < 2; ++i){
             if(players[i]%2 == 1)
                 ++players[i];
@@ -24,6 +24,6 @@ int main(int argc, char const *argv[]){
         ++ans;
     }
 
-    cout << (players[0] < players[1] ? ans : -1) << "\n";
+    cout << ans << "\n";
     return 0;
 }
