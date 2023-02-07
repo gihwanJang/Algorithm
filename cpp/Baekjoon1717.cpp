@@ -6,15 +6,19 @@ using namespace std;
 int findRoot(vector<int>&finder, int v){
     if(finder[v] == v)
         return v;
+    
     int parent = findRoot(finder, finder[v]);
     finder[v] = parent;
+    
     return parent;
 }
 
 void merge(vector<int>&finder, int v1, int v2){
     int r1 = findRoot(finder, v1);
 	int r2 = findRoot(finder, v2);
+
 	if(r1 == r2) return;
+
 	finder[r1] = r2;
 }
 
