@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 public class Mkdir{
 
     public void makeDir(String path, String name){
-        String newPath = path + "/" + name.substring(0, name.length()-4);
+        String newPath = path + "/" + name.substring(0, name.length()-5);
         File newFile = new File(newPath);
         if (!newFile.exists()) {	// 폴더가 존재하는지 체크, 없다면 생성
 			if (newFile.mkdirs())
@@ -33,11 +33,11 @@ public class Mkdir{
 
     public static void main(String[] args) {
         Mkdir maker = new Mkdir();
-        String path = "/Users/jang-gihwan/Desktop/Algorithm/cpp";
+        String path = "/Users/jang-gihwan/Desktop/Algorithm/java";
         File f = new File(path);
         FilenameFilter filter= new FilenameFilter() {
             public boolean accept(File f, String name) {
-                return name.contains("cpp");
+                return name.contains("java");
             }
           };
 
