@@ -22,7 +22,7 @@
 찾았다면 해당 칸이 다시 0인지 확인 후 해당 자리에 1 ~ 9까지 수를 넣을 수 있다면 넣고 다음 칸을 탐색합니다.  
 이때 다음 칸에서 어떠한 수도 넣지 못한다면 이전에 칸을 0으로 바꾸고 이전에 넣었던 수 보다 큰 수를 넣고 재 탐색 합니다.
 
-```CPP
+```cpp
 void fillInTheBlank(vector<string>&board, int curr_r, int curr_c){
     int r, c;
     bool find = false;
