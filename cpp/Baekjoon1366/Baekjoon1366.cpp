@@ -6,6 +6,9 @@
 
 using namespace std;
 
+int ans = 987654321;
+unordered_set<int> set;
+
 unordered_map<string,int> makeMap(){
     unordered_map<string,int> map;
     map.insert({"A",1});
@@ -23,39 +26,36 @@ unordered_map<string,int> makeMap(){
     return map;
 }
 
-bool cmp(int a, int b){
-    return b < a;
-}
-
-int checkAllCase(vector<int>&scales,vector<int>&location,vector<int>&code,int depth){
+void play(vector<int>&scales, vector<int>&code, vector<pair<int,int>>&difficulty, int depth){
     if(depth == scales.size()){
-        unordered_set<int> set(15);
-        vector<int> difficulty(depth);
+        int l = 987654321, r = 0;
+        for(int i = 0; i < scales.size(); ++i){
+            set.insert(difficulty[i].first);
 
-        for(int i = 0; i < depth; ++i){
-            set.insert(location[i]);
-            difficulty[i] = scales[i] > location[i] ? 12 - scales[i] + location[i] : location[i] - scales[i];
+            if(difficulty[i].second != 0){
+                r = max(r, difficulty[i].second);
+                l = min(l, difficulty[i].second);
+            }
         }
-        
-        if(set.size() != code.size()) return 100;
 
-        sort(difficulty.begin(), difficulty.end(), cmp);
-
-        if(difficulty[0]){
-            while(difficulty[difficulty.size() - 1] == 0)
-                difficulty.pop_back();
-            return difficulty[0] - difficulty[difficulty.size() - 1] + 1;
+        if(set.size() == code.size()){
+            if(l == 987654321)
+                ans = 0;
+            else if(r - l + 1 < ans)
+                ans = r - l + 1;
         }
-        return 0;
+
+        set.clear();
+        return;
     }
-
-    int res = 100;
+    
     for(int i = 0; i < code.size(); ++i){
-        location[depth] = code[i];
-        res = min(checkAllCase(scales, location, code, depth+1),res);
-    }
-
-    return res;
+        difficulty[depth].first = code[i];
+        difficulty[depth].second = code[i] - scales[depth] + (code[i] >= scales[depth] ? 0 : 12);
+        play(scales, code, difficulty, depth + 1);
+        difficulty[depth].second += 12;
+        play(scales, code, difficulty, depth + 1);
+    }    
 }
 
 int main(int argc, char const *argv[]){
@@ -69,7 +69,6 @@ int main(int argc, char const *argv[]){
 
     unordered_map<string,int> map = makeMap();
     vector<int> scales(n);
-    vector<int> location(n);
     vector<int> code(m);
     for(int i = 0; i < n; ++i){
         cin >> s;
@@ -80,7 +79,9 @@ int main(int argc, char const *argv[]){
         code[i] = map.at(s);
     }
 
-    cout << checkAllCase(scales, location, code, 0) << "\n";
-    
+    vector<pair<int,int>> difficulty(n);
+    play(scales, code, difficulty, 0);
+
+    cout << ans << "\n";
     return 0;
 }
