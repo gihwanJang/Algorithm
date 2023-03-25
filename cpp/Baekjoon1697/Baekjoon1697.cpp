@@ -1,32 +1,46 @@
-#include <cstdio>
-#include <algorithm>
+#include <iostream>
+#include <vector>
+#include <queue>
+
 using namespace std;
 
-int n, m, ans = 100000000;
-bool visited[100001] = {false, };
+int seek(int n, int k){
+    if(n >= k) return n - k;
 
-bool valid(int k) {
-	if (k < 0 || k > 100000)
-		return false;
-	return true;
-}
+    pair<int,int> curr;
+    queue<pair<int,int>> que;
+    vector<bool> visited(k+2);
 
-void solution(int k, int curr){
-    if(k == m){
-        ans = min(ans, curr);
-        return;
+    que.push({n,0});
+
+    while(!que.empty()){
+        curr = que.front();
+        que.pop();
+
+        visited[curr.first] = true;
+
+        if(curr.first+1 == k || curr.first-1 == k || curr.first*2 == k)
+            return curr.second+1;
+
+        if(!visited[curr.first+1])
+            que.push({curr.first+1, curr.second+1});
+        if(curr.first-1 > 0 && !visited[curr.first-1])
+            que.push({curr.first-1, curr.second+1});
+        if(curr.first*2 < k+2 && !visited[curr.first*2])
+            que.push({curr.first*2, curr.second+1});
     }
-    if (valid(k - 1)) 
-        solution(k - 1, curr + 1);
-    if(valid(k + 1))
-        solution(k + 1, curr + 1);
-    if(valid(2 * k))
-        solution(2 * k, curr + 1);
+
+    return -1;
 }
 
 int main(int argc, char const *argv[]){
-    scanf("%d %d", &n, &m);
-    solution(n,0);
-    printf("%d\n", ans);
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    
+    int n, k;
+    cin >> n >> k;
+
+    cout << seek(n, k) << "\n";
     return 0;
 }
