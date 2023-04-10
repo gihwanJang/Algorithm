@@ -1,4 +1,4 @@
-# (13549) 트리의 부모 찾기 
+# (13549) 숨바꼭질 3
 ## :100: Algorithm
 [문제 바로가기](https://www.acmicpc.net/problem/13549)
 #
