@@ -38,7 +38,7 @@ struct edge{
 
 void dijkstra(vector<vector<edge>>&matrix, vector<int>&distance, int start){
     pair<int, int> curr, next;
-    priority_queue<pair<int, int>> pq;
+    priority_queue<pair<int, int>,vector<pair<int, int>>,greater<pair<int, int>>> pq;
 
     distance[start] = 0;
     pq.push({0, start});
@@ -83,4 +83,5 @@ int main(int argc, char const *argv[]){
     }
     return 0;
 }
+
 ```
