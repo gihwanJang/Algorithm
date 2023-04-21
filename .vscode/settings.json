@@ -23,6 +23,8 @@
         "initializer_list": "cpp",
         "string_view": "cpp",
         "__string": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "istream": "cpp",
+        "stack": "cpp"
     }
 }
