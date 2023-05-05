@@ -1,4 +1,4 @@
-# (1916) 후위 표기식
+# (1916) 최소비용 구하기
 ## :100: Algorithm
 [문제 바로가기](https://www.acmicpc.net/problem/1916)
 #
