@@ -22,10 +22,10 @@
 ## 풀이
 세 각을 입력받은 후 아래의 조건문을 실행합니다.
 
-해당 각의 합이 180이 아닌 경우 Error를 출력합니다.
-두 각이 60이면 Equilateral를 출력합니다.
-두 각이 같으면 Isosceles를 출력합니다.
-이외의 경우는 Scalene를 출력합니다.
+해당 각의 합이 180이 아닌 경우 Error를 출력합니다.  
+두 각이 60이면 Equilateral를 출력합니다.  
+두 각이 같으면 Isosceles를 출력합니다.  
+이외의 경우는 Scalene를 출력합니다.  
 
 ```cpp
 #include <iostream>
