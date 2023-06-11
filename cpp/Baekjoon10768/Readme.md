@@ -22,7 +22,7 @@
 month와 day를 입력받습니다.  
 
 month가 2보다 크면 'After'을 작으면 'Before'을 출력합니다.  
-month가 2인 경우 day가 18보다 크면 'After'을 작으면 'Before'을 같으면 'Special'을 출력합니다.
+month가 2인 경우 day가 18보다 크면 'After'을 작으면 'Before'을 같으면 'Special'을 출력합니다.  
 
 ```cpp
 #include <iostream>
