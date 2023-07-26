@@ -1,4 +1,4 @@
-# (1183) 약속
+# (1183) 약속
 ## :100: Algorithm
 [문제 바로가기](https://www.acmicpc.net/problem/1183)
 #
