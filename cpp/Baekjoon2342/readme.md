@@ -1,6 +1,6 @@
-# (1799) 비숍
+# (2342) Dance Dance Revolution
 ## :100: Algorithm
-[문제 바로가기](https://www.acmicpc.net/problem/1799)
+[문제 바로가기](https://www.acmicpc.net/problem/2342)
 #
 ## 문제
 승환이는 요즘 "Dance Dance Revolution"이라는 게임에 빠져 살고 있다. 하지만 그의 춤 솜씨를 보면 알 수 있듯이, 그는 DDR을 잘 하지 못한다. 그럼에도 불구하고 그는 살을 뺄 수 있다는 일념으로 DDR을 즐긴다.
