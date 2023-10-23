@@ -1,9 +1,16 @@
 # Algorithm
-알고리즘 풀이입니다.  
-C++, Java 언어로 풀이되어 있습니다.
-## C++
-- 대부분 백준 풀이 코드입니다.
-- mkdir commit은 Readme파일이 없습니다.
-## Java
-- 대부분 프로그래머스 풀이 코드입니다.
-- mkdir commit은 Readme파일이 없습니다.(mkdir 제외)
+This is a collection of algorithm solutions.  
+
+# Platform
+[백준 온라인 저지](https://www.acmicpc.net)  
+[프로그래머스](https://programmers.co.kr)
+
+# Language
+- C++
+    - Apple clang veersion 15.0.0
+- JAVA
+    - JDK 17.0.9
+
+# Environment
+OS : MAC  
+IDE : VSCode
