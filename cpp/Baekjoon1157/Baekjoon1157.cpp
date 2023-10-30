@@ -1,23 +1,26 @@
-#include<iostream>
-using  namespace std;
-int main(int argc, char const *argv[]){
-    int max1=0,max2=1;
-    int count[26]={0,};
-    string s;
-    cin>>s;
-    for(size_t i=0; i<s.length(); ++i){
-        s[i]=toupper(s[i]);
-        ++count[s[i]-65];
-    }
+#include <algorithm>
+#include <iostream>
+#include <string>
 
-    for(size_t i=0; i<26; ++i)
-        if(count[max1]<count[i])max1=i;
-    for(size_t i=0; i<26; ++i)
-        if(count[max2]<count[i]&&i!=max1)max2=i;
-    
-    if(s.length()!=1&&count[max1]==count[max2])
-        cout<<"?"<<endl;
-    else
-        cout<<char(max1+65)<<endl;
+using  namespace std;
+
+char getMostChar(string&s) {
+    if(s.length() == 1) return toupper(s[0]);
+
+    vector<pair<int,int>> charMap(26);
+    for(int i = 0; i < 26; ++i) 
+        charMap[i].second = i;
+    for(int i = 0; i < s.length(); ++i) 
+        --charMap[toupper(s[i]) - 'A'].first;
+    sort(charMap.begin(), charMap.end());
+
+    if(charMap[0].first == charMap[1].first) return '?';
+    return charMap[0].second + 'A';
+}
+
+int main(int argc, char const *argv[]){
+    string s;
+    cin >> s;
+    cout << getMostChar(s) << "\n";
     return 0;
 }
