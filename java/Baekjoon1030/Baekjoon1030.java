@@ -35,7 +35,7 @@ class Problem {
         int shiftC = c % (step*n);       
         if (start <= shiftR && shiftR < start + (k*step)
             &&
-            start <= shiftC && shiftC< start + (k*step)) {
+            start <= shiftC && shiftC < start + (k*step)) {
                 return true;
         }
         return getColor(r, c, t+1);
