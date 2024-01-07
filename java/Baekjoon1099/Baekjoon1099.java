@@ -22,16 +22,14 @@ class Problem {
 
     private void makeTable() {
         dp[0] = 0;
-
         for(int i = 0; i < s.length(); ++i) {
-            if(dp[i] != Integer.MAX_VALUE) {
-                for(int j = 0; j < n; ++j) {
-                    if(i+wards[j].length() <= s.length()) {
-                        String sub = s.substring(i, i+wards[j].length());
-                        if(canMake(sub, wards[j])) {
-                            dp[i + wards[j].length()] = Math.min(dp[i + wards[j].length()], dp[i] + getCost(sub, wards[j]));
-                        }
-                    }
+            if(dp[i] == Integer.MAX_VALUE) {
+                continue;
+            }
+            for(int j = 0; j < n; ++j) {
+                int end = i+wards[j].length();
+                if(end <= s.length() && canMake(s.substring(i, end), wards[j])) {
+                    dp[end] = Math.min(dp[end], dp[i] + getCost(s.substring(i, end), wards[j]));
                 }
             }
         }
