@@ -58,7 +58,7 @@ class Manhattan {
     public int getShotestDistance() {
         int sumMax = 0;
         int subMax = 0;
-
+        
 		Arrays.sort(sub);
 		Arrays.sort(sum);
         for(int i = 1; i < n; ++i) {
