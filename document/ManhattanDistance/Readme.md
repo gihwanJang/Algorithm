@@ -9,7 +9,7 @@ ${\mathbf  {q}}$ 사이에 차원 실수를 데카르트 좌표계에 일정한 
 ${\mathbf  {p}}=(p_{1},p_{2},\dots ,p_{n})\,$과 
 ${\mathbf  {q}}=(q_{1},q_{2},\dots ,q_{n})\,$를 공간 벡터라 할 때,
 
-$d_{1}({\mathbf  {p}},{\mathbf  {q}})=\|{\mathbf  {p}}-{\mathbf  {q}}\|_{1}=\sum _{{i=1}}^{n}|p_{i}-q_{i}|$ 이다.
+$d_{1}$(${\mathbf  {p}}$,${\mathbf  {q}}$) = $|{\mathbf  {p}}-{\mathbf  {q}}\|_{1}$ = $\sum _{{i=1}}^{n}|p_{i}-q_{i}|$ 이다.
 
 예를 들어 2차원 평면위의 두점 
 $(x_{1},y_{2})$ 과 
