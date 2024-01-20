@@ -55,16 +55,16 @@ class Manhattan {
 		return Math.max(sub[n-1] - sub[0], sum[n - 1] - sum[0]);
 	}
 
-    public int getShotestDistance() {
-        int sumMax = 0;
-        int subMax = 0;
-        
+	public int getShotestDistance() {
+		int sumMax = 0;
+		int subMax = 0;
+
 		Arrays.sort(sub);
 		Arrays.sort(sum);
-        for(int i = 1; i < n; ++i) {
-            sumMax = Math.min(sumMax, sum[i] - sum[i-1]);
-            subMax = Math.min(subMax, sub[i] - sub[i-1]);
-        }
+		for(int i = 1; i < n; ++i) {
+			sumMax = Math.min(sumMax, sum[i] - sum[i-1]);
+			subMax = Math.min(subMax, sub[i] - sub[i-1]);
+		}
 		return Math.min(sumMax, subMax);
 	}
 }
