@@ -1,12 +1,12 @@
 import java.io.*;
 import java.util.*;
 
-class Location {
-    int node;
+class Node {
+    int seq;
     int value;
 
-    public Location(int node, int value) {
-        this.node = node;
+    public Node(int seq, int value) {
+        this.seq = seq;
         this.value = value;
     }   
 }
@@ -14,9 +14,9 @@ class Location {
 class Problem {
     private int n;
     private int m;
-    private int[][] tree;
     private int[][] query;
     private int[][] distence;
+    private List<List<Node>> tree;
 
     public Problem() {
         try {
@@ -34,7 +34,10 @@ class Problem {
         this.n = Integer.parseInt(st.nextToken());
         this.m = Integer.parseInt(st.nextToken());
 
-        this.tree = new int[n][n];
+        this.tree = new ArrayList<>(n);
+        for (int i = 0; i < n; ++i) {
+            tree.add(new ArrayList<>(n));
+        }
         this.distence = new int[n][n];
         for (int i = 1; i < n; ++i) {
             st = new StringTokenizer(br.readLine());
@@ -42,8 +45,8 @@ class Problem {
             int e = Integer.parseInt(st.nextToken()) - 1;
             int v = Integer.parseInt(st.nextToken());
 
-            tree[s][e] = v;
-            tree[e][s] = v;
+            tree.get(s).add(new Node(e, v));
+            tree.get(e).add(new Node(s, v));
         }
 
         this.query = new int[m][2];
@@ -73,19 +76,19 @@ class Problem {
     }
 
     private void makeRoute(boolean[] visited, int start) {
-        Location curr;
-        Stack<Location> stack = new Stack<>();
+        Node curr;
+        Stack<Node> stack = new Stack<>();
 
         visited[start] = true;
-        stack.add(new Location(start, 0));
+        stack.add(new Node(start, 0));
         while (!stack.isEmpty()) {
             curr = stack.pop();
             
-            for (int i = 0; i < n; ++i) {
-                if (tree[curr.node][i] != 0 && !visited[i]) {
-                    visited[i] = true;
-                    distence[start][i] = curr.value + tree[curr.node][i];
-                    stack.add(new Location(i, curr.value + tree[curr.node][i]));
+            for (Node n : tree.get(curr.seq)) {
+                if (!visited[n.seq]) {
+                    visited[n.seq] = true;
+                    distence[start][n.seq] = curr.value + n.value;
+                    stack.add(new Node(n.seq, curr.value + n.value));
                 }
             }
         }
