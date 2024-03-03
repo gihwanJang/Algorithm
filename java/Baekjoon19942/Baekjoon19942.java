@@ -19,7 +19,7 @@ class Answer {
                 sb.append(select[i]).append(" ");
             }
         } else {
-            return "-1\n";
+            return "-1";
         }
         return sb.toString();
     }
