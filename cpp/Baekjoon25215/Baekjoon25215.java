@@ -40,20 +40,18 @@ class Problem {
 
         for (int i = 0; i < charList.size(); ++i) {
             if (charList.get(i) == 1) {
-                if ((lowwer && !dia) || (!lowwer && dia)) { // 대/소 문자가 일치
+                if (!((lowwer && !dia) || (!lowwer && dia))) {
                     count += 1;
-                } else {
-                    count += 2;
                 }
             } else {
-                count += charList.get(i);
-                if (!((lowwer && !dia) || (!lowwer && dia))) { // 대/소 문자가 불일치
+                if (!((lowwer && !dia) || (!lowwer && dia))) {
                     count += 1;
                     dia = !dia;
                 }
             }
+
             lowwer = !lowwer;
-            // System.out.println(count);
+            count += charList.get(i);
         }
 
         System.out.println(count);
