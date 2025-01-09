@@ -1,50 +1,74 @@
 import java.io.*;
 import java.util.*;
 
-class Location {
-    int lo, hi;
-
-    public Location(int lo, int hi) {
-        this.lo = lo;
-        this.hi = hi;
-    }
-}
-
 class Problem {
-    String[] gears;
+    private int[] upGear;
+    private int[] downGear;
 
-    public Problem(String gear1, String gear2) {
-        gears = new String[2];
-        gears[0] = gear1;
-        gears[1] = gear2;
+    public Problem() {
+        try {
+            input();
+            solve();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    public int solve() {
-        int maximumArea = 0;
-        Location up = new Location(0, 0);
-        Location down = new Location(gears[1].length()-1, gears[1].length()-1);
-
-        while(up.hi != gears[0].length()-1 && down.lo != 0) {
-            step(up, down);
-        }
-
-        return maximumArea;
+    private void input() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        upGear = Arrays.stream(br.readLine().split(""))
+                .mapToInt(Integer::parseInt)
+                .toArray();
+        downGear = Arrays.stream(br.readLine().split(""))
+                .mapToInt(Integer::parseInt)
+                .toArray();
     }
 
-    private void step(Location up, Location down) {
-        if(down.lo != 0 && up.hi != gears[0].length()-1) {
-            --down.lo;
-            ++up.hi;
-        } else if(gears[0].length() < gears[1].length()) {
-            
+    private void solve() {
+        int min = upGear.length + downGear.length;
+
+        for (int j = 0; j < 2; ++j) {
+            for (int i = 0; i < downGear.length; ++i) {
+                min = Math.min(min, getMatch(i));
+            }
+            swap();
         }
+        
+        System.out.println(min);
+    }
+
+    private int getMatch(int start) {
+        int upPointer = 0;
+        int downPointer = 0;
+        List<Integer> temp = new ArrayList<>();
+
+        while (upPointer < upGear.length && downPointer < downGear.length) {
+            int value = start <= downPointer ? upGear[upPointer++] : 0;
+            value += downGear[downPointer++];
+            if (value == 4) {
+                return Integer.MAX_VALUE;
+            }
+            temp.add(value);
+        }
+
+        while (upPointer < upGear.length) {
+            temp.add(upGear[upPointer++]);
+        }
+        while (downPointer < downGear.length) {
+            temp.add(downGear[downPointer++]);
+        }
+        return temp.size();
+    }
+
+    private void swap() {
+        int[] temp = upGear;
+        upGear = downGear;
+        downGear = temp;
     }
 }
 
 public class Baekjoon1195 {
-    public static void main(String[] args) throws Exception {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        Problem problem = new Problem(br.readLine(), br.readLine());
-        System.out.println(problem.solve());
+    public static void main(String[] args) {
+        new Problem();
     }
 }
