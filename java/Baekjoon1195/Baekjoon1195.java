@@ -27,11 +27,22 @@ class Problem {
     private void solve() {
         int min = upGear.length + downGear.length;
 
-        for (int j = 0; j < 2; ++j) {
-            for (int i = 0; i < downGear.length; ++i) {
-                min = Math.min(min, getMatch(i));
+        for (int i = 0; i < downGear.length; ++i) {
+            min = Math.min(min, getMatch(i));
+            int len = getMatch(i);
+            if (len != Integer.MAX_VALUE) {
+                min = len;
+                break;
             }
-            swap();
+        }
+        swap();
+        for (int i = 0; i < downGear.length; ++i) {
+            min = Math.min(min, getMatch(i));
+            int len = getMatch(i);
+            if (len != Integer.MAX_VALUE) {
+                min = Math.min(len, min);
+                break;
+            }
         }
         
         System.out.println(min);
